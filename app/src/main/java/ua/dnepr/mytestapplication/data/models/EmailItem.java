@@ -65,16 +65,16 @@ public class EmailItem implements Serializable {
 	private String updated;
 	@SerializedName("des_facet")
 	@NonNull
-	private List<String> desFacet = null;
+	private Object desFacet ;
 	@SerializedName("org_facet")
 	@NonNull
 	private Object orgFacet;
 	@SerializedName("per_facet")
 	@NonNull
-	private List<String> perFacet = null;
+	private Object perFacet;
 	@SerializedName("geo_facet")
 	@NonNull
-	private String geoFacet;
+	private Object geoFacet;
 	@SerializedName("media")
 	@NonNull
 	private List<Medium> media = null;
@@ -242,7 +242,7 @@ public class EmailItem implements Serializable {
 	}
 
 	@NonNull
-	public List<String> getDesFacet() {
+	public Object getDesFacet() {
 		return desFacet;
 	}
 
@@ -260,7 +260,7 @@ public class EmailItem implements Serializable {
 	}
 
 	@NonNull
-	public List<String> getPerFacet() {
+	public Object getPerFacet() {
 		return perFacet;
 	}
 
@@ -269,7 +269,7 @@ public class EmailItem implements Serializable {
 	}
 
 	@NonNull
-	public String getGeoFacet() {
+	public Object getGeoFacet() {
 		return geoFacet;
 	}
 
