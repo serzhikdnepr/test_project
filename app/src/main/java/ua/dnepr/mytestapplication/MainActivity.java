@@ -1,13 +1,15 @@
 package ua.dnepr.mytestapplication;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.appcompat.app.AppCompatDelegate;
+
+
+public class MainActivity extends MvpAppCompatActivity {
 
 
 
@@ -15,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 			= new BottomNavigationView.OnNavigationItemSelectedListener() {
 
 		@Override
-		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+		public boolean onNavigationItemSelected(MenuItem item) {
 			switch (item.getItemId()) {
 				case R.id.navigation_emailed:
 
@@ -34,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
 		setContentView(R.layout.activity_main);
-
 		BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
 		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 	}

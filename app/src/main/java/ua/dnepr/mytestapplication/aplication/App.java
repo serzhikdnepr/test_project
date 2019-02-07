@@ -2,8 +2,8 @@ package ua.dnepr.mytestapplication.aplication;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDex;
 
+import androidx.multidex.MultiDex;
 import ua.dnepr.mytestapplication.di.AppComponent;
 import ua.dnepr.mytestapplication.di.DaggerAppComponent;
 import ua.dnepr.mytestapplication.di.module.ContextModule;

@@ -1,14 +1,13 @@
 package ua.dnepr.mytestapplication.di.module;
 
-import android.support.annotation.NonNull;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Singleton;
 
+import androidx.annotation.NonNull;
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.Interceptor;
