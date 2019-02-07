@@ -15,7 +15,7 @@ public class ServerMethod {
     public ServerMethod() {
     }
 
-    public Single<GetListEmailed> getListEmailedSingle( ) {
-        return mGhostApiService.getListEmailed();
+    public Single<GetListEmailed> getListEmailedSingle() {
+        return mGhostApiService.getListEmailed(AppApiConstants.API_KEY);
     }
 }

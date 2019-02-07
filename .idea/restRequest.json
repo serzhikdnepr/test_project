@@ -1,0 +1,6 @@
+{
+  "uri": "https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key\u003dmntK14RTARAih7VKy22bMRe9vUoJTXSq",
+  "method": "GET",
+  "body": "",
+  "headers": {}
+}
