@@ -8,9 +8,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import ua.dnepr.mytestapplication.data.models.EmailItem;
+import ua.dnepr.mytestapplication.data.models.SharedItem;
 
-public class GetListEmailed implements Serializable {
+public class GetListShared implements Serializable {
 	@SerializedName("status")
 	private String status;
 	@SerializedName("copyright")
@@ -19,11 +19,11 @@ public class GetListEmailed implements Serializable {
 	@NonNull
 	private int num_results;
 	@SerializedName("results")
-	private List<EmailItem> emailItems = null;
+	private List<SharedItem> sharedItems = null;
 
 
-	public List<EmailItem> getMediumList() {
-		return (emailItems!=null)?emailItems:new ArrayList<>();
+	public List<SharedItem> getMediumList() {
+		return (sharedItems != null) ? sharedItems : new ArrayList<>();
 	}
 
 	public String getStatus() {

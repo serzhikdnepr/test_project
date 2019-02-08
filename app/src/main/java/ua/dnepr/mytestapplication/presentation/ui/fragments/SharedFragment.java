@@ -21,17 +21,21 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ua.dnepr.mytestapplication.R;
 import ua.dnepr.mytestapplication.data.models.EmailItem;
+import ua.dnepr.mytestapplication.data.models.SharedItem;
 import ua.dnepr.mytestapplication.presentation.mvp.emailed.IEmailedView;
 import ua.dnepr.mytestapplication.presentation.mvp.emailed.PresenterEmailed;
 import ua.dnepr.mytestapplication.presentation.mvp.emailed.adapter.EmailedAdapter;
+import ua.dnepr.mytestapplication.presentation.mvp.shared.ISharedView;
+import ua.dnepr.mytestapplication.presentation.mvp.shared.PresenterShared;
+import ua.dnepr.mytestapplication.presentation.mvp.shared.adapter.SharedAdapter;
 import ua.dnepr.mytestapplication.presentation.ui.DetailActivity;
 
-public class EmailedFragment extends MvpAppCompatFragment implements IEmailedView {
+public class SharedFragment extends MvpAppCompatFragment implements ISharedView {
     @InjectPresenter
-    PresenterEmailed presenterEmailed;
+    PresenterShared presenterShared;
     @BindView(R.id.progress)
     ProgressBar progressBar;
-    EmailedAdapter emailedAdapter;
+    SharedAdapter sharedAdapter;
     @BindView(R.id.view_no_elements)
     RelativeLayout view_no_elements;
     @BindView(R.id.recyclerViewList)
@@ -39,11 +43,11 @@ public class EmailedFragment extends MvpAppCompatFragment implements IEmailedVie
     @BindView(R.id.swiprefresh)
     SwipeRefreshLayout swipeRefreshLayout;
 
-    public EmailedFragment() {
+    public SharedFragment() {
     }
 
-    public static EmailedFragment newInstance() {
-        EmailedFragment frag = new EmailedFragment();
+    public static SharedFragment newInstance() {
+        SharedFragment frag = new SharedFragment();
         Bundle args = new Bundle();
         frag.setArguments(args);
         return frag;
@@ -66,10 +70,10 @@ public class EmailedFragment extends MvpAppCompatFragment implements IEmailedVie
     }
 
     @Override
-    public void listPosts(List<EmailItem> emailItems) {
-        emailedAdapter.clearItems();
-        emailedAdapter.setItems(emailItems);
-        if (emailItems.size() == 0) {
+    public void listPosts(List<SharedItem> sharedItems) {
+        sharedAdapter.clearItems();
+        sharedAdapter.setItems(sharedItems);
+        if (sharedItems.size() == 0) {
             view_no_elements.setVisibility(View.VISIBLE);
         } else {
             view_no_elements.setVisibility(View.GONE);
@@ -86,15 +90,15 @@ public class EmailedFragment extends MvpAppCompatFragment implements IEmailedVie
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.recyclerview, container, false);
         ButterKnife.bind(this, rootView);
-        emailedAdapter = new EmailedAdapter(emailItem -> {
-            DetailActivity.start(getActivity(),emailItem);
+        sharedAdapter = new SharedAdapter(sharedItem -> {
+            DetailActivity.start(getActivity(),sharedItem);
         });
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerViewList.setLayoutManager(linearLayoutManager);
         recyclerViewList.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewList.setAdapter(emailedAdapter);
+        recyclerViewList.setAdapter(sharedAdapter);
         swipeRefreshLayout.setOnRefreshListener(() -> {
-            presenterEmailed.getMostEmailed(false);
+            presenterShared.getMostShared(false);
         });
 
         return rootView;

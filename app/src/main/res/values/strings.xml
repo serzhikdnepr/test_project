@@ -1,9 +1,12 @@
 <resources>
-	<string name="app_name">MyTestApplication</string>
-	<string name="title_emailed">Emailed</string>
-	<string name="title_shared">Shared</string>
-	<string name="title_viewed">Viewed</string>
+    <string name="app_name">MyTestApplication</string>
+    <string name="title_emailed">Emailed</string>
+    <string name="title_shared">Shared</string>
+    <string name="title_viewed">Viewed</string>
 
-	<string name="empty_list">Список пуст</string>
-	<!--<string name="api_key">mntK14RTARAih7VKy22bMRe9vUoJTXSq</string>-->
+    <string name="empty_list">Список пуст</string>
+    <string name="no_internet">Проверьте свое интернет соединение</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="go_to_site">Перейти на сайт</string>
+    <!--<string name="api_key">mntK14RTARAih7VKy22bMRe9vUoJTXSq</string>-->
 </resources>

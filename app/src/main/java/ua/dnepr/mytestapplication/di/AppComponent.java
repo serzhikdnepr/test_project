@@ -9,6 +9,7 @@ import ua.dnepr.mytestapplication.data.network.ServerMethod;
 import ua.dnepr.mytestapplication.di.module.ContextModule;
 import ua.dnepr.mytestapplication.di.module.DataModule;
 import ua.dnepr.mytestapplication.presentation.mvp.emailed.PresenterEmailed;
+import ua.dnepr.mytestapplication.presentation.mvp.shared.PresenterShared;
 
 
 @Singleton
@@ -20,4 +21,5 @@ public interface AppComponent {
     ServerMethod getAuthService();
 
     void inject(PresenterEmailed presenterEmailed);
+    void inject(PresenterShared presenterShared);
 }

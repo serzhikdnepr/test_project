@@ -1,6 +1,4 @@
-package ua.dnepr.mytestapplication.presentation.mvp.emailed;
-
-import android.util.Log;
+package ua.dnepr.mytestapplication.presentation.mvp.shared;
 
 import com.arellomobile.mvp.InjectViewState;
 
@@ -10,36 +8,37 @@ import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import ua.dnepr.mytestapplication.R;
 import ua.dnepr.mytestapplication.aplication.App;
 import ua.dnepr.mytestapplication.data.events.GetListEmailed;
+import ua.dnepr.mytestapplication.data.events.GetListShared;
 import ua.dnepr.mytestapplication.data.network.AppApiConstants;
 import ua.dnepr.mytestapplication.data.network.ServerMethod;
 import ua.dnepr.mytestapplication.domain.exceptions.NoNetworkException;
 import ua.dnepr.mytestapplication.presentation.mvp.BasePresenter;
+import ua.dnepr.mytestapplication.presentation.mvp.emailed.IEmailedView;
 
 @InjectViewState
-public class PresenterEmailed extends BasePresenter<IEmailedView> {
+public class PresenterShared extends BasePresenter<ISharedView> {
 
 	@Inject
 	ServerMethod serverMethod;
 
 
-	public PresenterEmailed() {
+	public PresenterShared() {
 		App.getComponent().inject(this);
 	}
 
 	@Override
 	protected void onFirstViewAttach() {
 		super.onFirstViewAttach();
-		getMostEmailed(true);
+		getMostShared(true);
 	}
 
-	public void getMostEmailed(boolean showProgress) {
+	public void getMostShared(boolean showProgress) {
 		if (showProgress) {
 			getViewState().showProgres();
 		}
-		final Single<GetListEmailed> observable = serverMethod.getListEmailedSingle();
+		final Single<GetListShared> observable = serverMethod.getListSharedSingle();
 		Disposable subscription = observable
 				.subscribeOn(Schedulers.newThread())
 				.retry(2)

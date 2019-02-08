@@ -16,6 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ua.dnepr.mytestapplication.R;
 import ua.dnepr.mytestapplication.presentation.ui.fragments.EmailedFragment;
+import ua.dnepr.mytestapplication.presentation.ui.fragments.SharedFragment;
 
 
 public class MainActivity extends MvpAppCompatActivity {
@@ -87,9 +88,9 @@ public class MainActivity extends MvpAppCompatActivity {
     private Fragment getFragment(String tab) {
         if (tab.equalsIgnoreCase(getString(R.string.title_emailed))) {
             return EmailedFragment.newInstance();
-        } else if (tab.equalsIgnoreCase(getString(R.string.title_emailed))) {
-            return EmailedFragment.newInstance();
-        } else if (tab.equalsIgnoreCase(getString(R.string.title_emailed))) {
+        } else if (tab.equalsIgnoreCase(getString(R.string.title_shared))) {
+            return SharedFragment.newInstance();
+        } else if (tab.equalsIgnoreCase(getString(R.string.title_viewed))) {
             return EmailedFragment.newInstance();
         } else {
             return EmailedFragment.newInstance();
