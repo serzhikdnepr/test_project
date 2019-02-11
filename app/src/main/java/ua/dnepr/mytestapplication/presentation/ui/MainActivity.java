@@ -17,6 +17,7 @@ import butterknife.ButterKnife;
 import ua.dnepr.mytestapplication.R;
 import ua.dnepr.mytestapplication.presentation.ui.fragments.EmailedFragment;
 import ua.dnepr.mytestapplication.presentation.ui.fragments.SharedFragment;
+import ua.dnepr.mytestapplication.presentation.ui.fragments.ViewedFragment;
 
 
 public class MainActivity extends MvpAppCompatActivity {
@@ -91,7 +92,7 @@ public class MainActivity extends MvpAppCompatActivity {
         } else if (tab.equalsIgnoreCase(getString(R.string.title_shared))) {
             return SharedFragment.newInstance();
         } else if (tab.equalsIgnoreCase(getString(R.string.title_viewed))) {
-            return EmailedFragment.newInstance();
+            return ViewedFragment.newInstance();
         } else {
             return EmailedFragment.newInstance();
         }

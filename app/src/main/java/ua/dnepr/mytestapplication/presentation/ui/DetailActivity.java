@@ -22,8 +22,8 @@ import butterknife.ButterKnife;
 import ua.dnepr.mytestapplication.R;
 import ua.dnepr.mytestapplication.data.models.EmailItem;
 import ua.dnepr.mytestapplication.data.models.SharedItem;
+import ua.dnepr.mytestapplication.data.models.ViewItem;
 import ua.dnepr.mytestapplication.presentation.mvp.GlideApp;
-import ua.dnepr.mytestapplication.presentation.utils.AppUtils;
 
 public class DetailActivity extends AppCompatActivity {
 	@BindView(R.id.toolbar)
@@ -89,6 +89,26 @@ public class DetailActivity extends AppCompatActivity {
 			text_descript.setText(sharedItem.get_abstract());
 			btn_site.setOnClickListener(v -> {
 				Uri address = Uri.parse(sharedItem.getUrl());
+				CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder()
+						.setShowTitle(true);
+				CustomTabsIntent customTabsIntent = builder.build();
+				customTabsIntent.launchUrl(this, address);
+			});
+		}else if(getIntent().getSerializableExtra("object") instanceof ViewItem){
+			ViewItem viewItem = (ViewItem) getIntent().getSerializableExtra("object");
+			String url = viewItem.getMedia().get(0).getMediaMetadata().get(2).getUrl();
+			ViewGroup.LayoutParams params = imageView.getLayoutParams();
+			params.height = (int) (metrics.widthPixels*((float)viewItem.getMedia().get(0).getMediaMetadata().get(2).getHeight()/(float)viewItem.getMedia().get(0).getMediaMetadata().get(2).getWidth()));
+
+			imageView.setLayoutParams(params);
+			GlideApp.with(this)
+					.load(url)
+					.fitCenter()
+					.placeholder(R.drawable.ic_launcher_background)
+					.into(imageView);
+			text_descript.setText(viewItem.get_abstract());
+			btn_site.setOnClickListener(v -> {
+				Uri address = Uri.parse(viewItem.getUrl());
 				CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder()
 						.setShowTitle(true);
 				CustomTabsIntent customTabsIntent = builder.build();

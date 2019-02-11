@@ -6,6 +6,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 import ua.dnepr.mytestapplication.data.events.GetListEmailed;
 import ua.dnepr.mytestapplication.data.events.GetListShared;
+import ua.dnepr.mytestapplication.data.events.GetListViewed;
 
 public interface GhostApiService {
 
@@ -14,4 +15,7 @@ public interface GhostApiService {
 
     @GET("shared/1/facebook.json")
     Single<GetListShared> getListShared(@Query("api-key") String api_key);
+
+    @GET("viewed/1.json")
+    Single<GetListViewed> getListViewed(@Query("api-key") String api_key);
 }

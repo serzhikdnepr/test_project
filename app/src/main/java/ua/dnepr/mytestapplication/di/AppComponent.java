@@ -10,6 +10,7 @@ import ua.dnepr.mytestapplication.di.module.ContextModule;
 import ua.dnepr.mytestapplication.di.module.DataModule;
 import ua.dnepr.mytestapplication.presentation.mvp.emailed.PresenterEmailed;
 import ua.dnepr.mytestapplication.presentation.mvp.shared.PresenterShared;
+import ua.dnepr.mytestapplication.presentation.mvp.viewed.PresenterViewed;
 
 
 @Singleton
@@ -22,4 +23,5 @@ public interface AppComponent {
 
     void inject(PresenterEmailed presenterEmailed);
     void inject(PresenterShared presenterShared);
+    void inject(PresenterViewed presenterViewed);
 }

@@ -14,7 +14,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ua.dnepr.mytestapplication.R;
-import ua.dnepr.mytestapplication.data.models.EmailItem;
 import ua.dnepr.mytestapplication.data.models.SharedItem;
 import ua.dnepr.mytestapplication.presentation.mvp.GlideApp;
 
